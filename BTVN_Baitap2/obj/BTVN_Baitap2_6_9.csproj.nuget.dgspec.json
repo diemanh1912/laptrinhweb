@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Downloads\\BTVN_Baitap2_6_9\\BTVN_Baitap2_6_9.csproj": {}
+    "C:\\Users\\ADMIN\\Downloads\\github\\BTVN_Baitap2\\BTVN_Baitap2_6_9.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Downloads\\BTVN_Baitap2_6_9\\BTVN_Baitap2_6_9.csproj": {
+    "C:\\Users\\ADMIN\\Downloads\\github\\BTVN_Baitap2\\BTVN_Baitap2_6_9.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\BTVN_Baitap2_6_9\\BTVN_Baitap2_6_9.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\github\\BTVN_Baitap2\\BTVN_Baitap2_6_9.csproj",
         "projectName": "BTVN_Baitap2_6_9",
-        "projectPath": "C:\\Users\\ADMIN\\Downloads\\BTVN_Baitap2_6_9\\BTVN_Baitap2_6_9.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\Downloads\\github\\BTVN_Baitap2\\BTVN_Baitap2_6_9.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Downloads\\BTVN_Baitap2_6_9\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\Downloads\\github\\BTVN_Baitap2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
