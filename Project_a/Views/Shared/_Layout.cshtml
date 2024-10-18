@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project_a</title>
+
+    <!-- Liên kết đến Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+
+    <!-- Liên kết đến CSS tuỳ chỉnh của bạn -->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery-func.js"></script>
+
+    <title>Website của Diễm Anh</title>
+</head>
+<body>
+
+   @*  <header class="header">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="#">movie hunter</a>
+        </div>
+
+        <!-- Main Menu with Login/Signup -->
+        <nav class="main-menu">
+            <ul class="menu-items">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">In Theaters</a></li>
+                <li><a href="#">Coming Soon</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Advertise</a></li>
+            </ul>
+
+            <!-- Login/Signup Partial -->
+            <div class="auth-links">
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+
+        <!-- Sub-Menu with Search Bar -->
+        <div class="sub-menu">
+            <ul>
+                <li><a href="#">Show All</a></li>
+                <li><a href="#">Latest Trailers</a></li>
+                <li><a href="#">Top Rated</a></li>
+                <li><a href="#">Most Commented</a></li>
+            </ul>
+            <div class="search-bar">
+                <span>Search</span>
+                <input type="text" placeholder="Enter search here" />
+                <button>GO!</button>
+            </div>
+        </div>
+    </header> *@
+    <header class="header">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="#">phimmoi.net</a>
+        </div>
+
+        <!-- Main Menu with Login/Signup -->
+        <nav class="main-menu">
+            <ul class="menu-items">
+                <li><a href="#" class="active">Trang Chủ</a></li>               
+                <li><a href="#">Thể loại</a>
+                    <ul class="submenu">
+ @*                        <li><a href="#">Phim Anime</a></li>
+                        <li><a href="#">Phim Tình Cảm</a></li>
+                        <li><a href="#">Phim Ma</a></li>
+                        <li><a href="#">Phim Hài Hước</a></li>
+                        <li><a href="#">Phim Hành Động</a></li> *@
+                        @* <vc:the-loai></vc:the-loai>; *@
+                        @await Component.InvokeAsync("TheLoai");
+                    </ul>
+                </li>
+                <li><a href="#">phim lẻ</a></li>
+                <li><a href="#">phim bộ</a></li>
+                <li><a href="#">sắp ra mắt</a></li>
+                <li><a href="#">dịch vụ</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+            </ul>
+
+            <!-- Partial Login/Signup -->
+            <ul class="auth-links">
+                @using Microsoft.AspNetCore.Identity
+                @inject SignInManager<IdentityUser> SignInManager
+                @inject UserManager<IdentityUser> UserManager
+
+                @if (SignInManager.IsSignedIn(User))
+
+                {
+                    <li>
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
+                            Hello @User.Identity?.Name!
+                        </a>
+                    </li>
+                    <li>
+                        <form asp-area="Identity" asp-page="/Account/Logout"
+                              asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="btn btn-link nav-link">Đăng Xuất</button>
+                        </form>
+                    </li>
+                }
+
+                else
+
+                {
+                    <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a></li>
+                    <li><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Đăng Nhập</a></li>
+                }
+            </ul>
+        </nav>
+
+        <!-- Sub-Menu with Search Bar -->
+        <div class="sub-menu">         
+            <div class="search-bar">
+                <span>Tìm Kiếm</span>
+                <input type="text" placeholder="Tìm kiếm tại đây" />
+                <button>tìm</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+   
+    <footer>
+        <div class="footer-container" style="background-color: #1e1e1e; padding: 20px; color: #fff;">
+            <div class="footer-brand" style="margin-bottom: 20px;">
+                <h2 style="color: #d18d39; display: inline-block;">phimmoi.net</h2>
+                <span style="color: #fff;"> - Phim Online</span>
+                <p style="color: #b0b0b0;">phimmoi.net - Trang xem phim trực tuyến miễn phí tại Vietnam. Tại đây các bạn có thể tìm kiếm những bộ phim mà mình yêu thích với hơn hàng nghìn bộ phim mới được cập nhật thường xuyên.</p>
+            </div>
+            <div class="footer-links-container" style="display: flex; justify-content: space-between;">
+                <div class="footer-links-section" style="margin-right: 20px;">
+                    <h3 style="color: #fff;">Phim mới</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li><a href="#" style="color: #4da6ff;">Phim Tình Cảm</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim BL</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Bách Hợp</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Cổ Trang</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Hài</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section" style="margin-right: 20px;">
+                    <h3 style="color: #fff;">Phim hay</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li><a href="#" style="color: #4da6ff;">Phim Trung Quốc</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Hàn Quốc</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Nhật Bản</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim hoạt hình</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Phim Âu Mỹ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section">
+                    <h3 style="color: #fff;">Thông tin</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li><a href="#" style="color: #4da6ff;">Liên hệ</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Về chúng tôi</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Điều khoản sử dụng</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Vấn đề bản quyền</a></li>
+                        <li><a href="#" style="color: #4da6ff;">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px; color: #b0b0b0;">
+                © phimmoi.net
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

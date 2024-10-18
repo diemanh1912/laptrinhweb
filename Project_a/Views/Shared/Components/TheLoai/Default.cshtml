@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TheLoaiViewModel>
+<div>
+    <ul>
+            @foreach (var item in Model)
+            {
+                <li><a asp-controller="Home" asp-action="FilterByTheLoai"
+                asp-route-id="@item.Id">@item.Name</a></li>
+            }
+
+
+    </ul>
+</div>
